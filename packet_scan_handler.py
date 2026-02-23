@@ -72,6 +72,10 @@ class PacketScanHandler(BaseHandler):
         finally:   # always close connection and delete database manager
             del self._db_manager
     
+    # get packet statstics at this moment
+    def __get_packet_port(self) -> None:
+        return self._L2_manager.get_packets_port()
+    
     # check and write packet to named pipe
     def __scan_packet(self) -> None:
         # calculate megabit and max megabit
@@ -90,7 +94,7 @@ class PacketScanHandler(BaseHandler):
                 # run until interrupted
                 while True:
                     # get bytes and calculate megabit with max
-                    calculate_current_and_max(*self._L2_manager.get_packets_port())
+                    calculate_current_and_max(*self.__get_packet_port())
 
                     # try block needed because bash script always reads data from pipe and closes promtply
                     try:
