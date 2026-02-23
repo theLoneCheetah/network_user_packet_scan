@@ -24,10 +24,8 @@ class FakeDatabaseManager(DatabaseManager):
 class FakeL2Switch(L2Switch):
     # init with some known model without real connection
     def __init__(self, ipaddress, user_port, print_output=False):
-        # Пропускаем реальное подключение
-        self._ipaddress = ipaddress
-        self._model = "DES-3028"
-
+        pass
+    
     # return random rx and tx bytes
     def get_packets_port(self):
         return randint(0, 10 ** 8), randint(0, 10 ** 8)
