@@ -31,8 +31,8 @@ class PacketScanHandler(BaseHandler):
         signal.signal(signal.SIGINT, self.__handle_exit)
 
         # create pipe if not exists
-        if not os.path.exists(PacketScan.PIPE):
-            os.mkfifo(PacketScan.PIPE)
+        #if not os.path.exists(PacketScan.PIPE):
+        #    os.mkfifo(PacketScan.PIPE)
 
         # variables
         self.__rx_megabit = 0

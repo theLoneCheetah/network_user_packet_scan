@@ -3,7 +3,7 @@ from __future__ import annotations
 import pexpect
 import re
 import os
-from typing_extensions import override
+from typing import override
 # user's modules
 from const import CitySwitch
 from base_network_device import BaseNetworkDevice
